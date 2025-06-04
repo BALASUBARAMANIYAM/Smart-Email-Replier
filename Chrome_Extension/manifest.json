@@ -1,0 +1,22 @@
+{
+  "name": "Email Writer Assistant",
+  "description": "AI-powered email reply generator for Gmail",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "http://localhost:8080/*",
+    "*://mail.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["*://mail.google.com/*"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Email Writer Assistant",
+    "default_popup": "popup.html"
+  }
+}
